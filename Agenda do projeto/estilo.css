@@ -1,0 +1,304 @@
+:root {
+    --main-color: #252c25;
+    --black: #13131a;
+    --bg: #171414;
+    --border: 0.1rem solid rgb(13, 77, 0);
+    font-size: #556B2f;
+    --accent: #556B2F;
+    --accent_hover: #6B8E23;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.1s linear;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+}
+
+
+/* NAVBAR */
+
+nav {
+    background: #228B22;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo {
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    width: 100px;
+    left: 100px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px;
+    display: block;
+}
+
+.menu a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+
+/* Dropdown */
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background: #fff;
+    top: 40px;
+    min-width: 150px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dropdown a {
+    color: #333;
+    padding: 10px;
+}
+
+.dropdown a:hover {
+    background: #f2f2f2;
+}
+
+.menu li:hover .dropdown {
+    display: block;
+}
+
+
+/* Search */
+
+.search-box {
+    display: flex;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.search-box input {
+    border: none;
+    padding: 6px 10px;
+    outline: none;
+}
+
+.search-box button {
+    border: none;
+    background: #008000;
+    color: #fff;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+
+/* Cart */
+
+.cart {
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.cart span {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: red;
+    color: #fff;
+    border-radius: 50%;
+    padding: 3px 6px;
+    font-size: 12px;
+}
+
+
+/* Login Button */
+
+.login-btn {
+    background: #fff;
+    color: #32CD32;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+/* Modal Login */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    background: #008000;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Mobile */
+
+.menu-toggle {
+    display: none;
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media(max-width:768px) {
+    .menu {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #008000;
+        display: none;
+        padding: 10px;
+    }
+    .menu.active {
+        display: flex;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .search-box {
+        display: none;
+    }
+}
+
+#Agenda {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.calendario-mensal {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Sombra moderna */
+    background-color: white;
+}
+
+.calendario-mensal caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 15px;
+    background-color: #007bff;
+    /* Azul moderno */
+    color: white;
+    text-transform: uppercase;
+}
+
+.calendario-mensal th {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.calendario-mensal td {
+    border: 1px solid #ddd;
+    width: 14.28%;
+    /* 100% / 7 dias */
+    height: 80px;
+    /* Altura para registros */
+    vertical-align: top;
+    padding: 5px;
+    color: #555;
+    transition: background 0.3s;
+}
+
+
+/* Efeito Hover e destaque */
+
+.calendario-mensal td:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+}
+
+
+/* Célula de Evento/Registro */
+
+.calendario-mensal .evento {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    font-size: 0.8em;
+    padding: 2px 4px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border-left: 3px solid #0c5460;
+}
